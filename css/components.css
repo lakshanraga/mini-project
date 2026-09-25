@@ -1,0 +1,863 @@
+/* ========================================================
+   SafeCampus - Windows 8 Metro UI Components
+   Sharp Flat Controls, Segoe UI, Vibrant Tiles
+   (Strictly NO pink, NO red, NO blue, NO black, NO dark blue)
+   ======================================================== */
+
+/* Form Controls & Inputs */
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 14px;
+  background: #ffffff;
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color var(--transition-fast);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--metro-emerald);
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Radio Cards (Windows 8 Flat Choice Tiles) */
+.radio-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.radio-card-label {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 18px 20px;
+  background: #ffffff;
+  border: 2px solid var(--border-color);
+  border-left: 6px solid var(--border-color);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.radio-card-label input[type="radio"] {
+  margin-top: 3px;
+  accent-color: var(--metro-emerald);
+}
+
+.radio-card-label:hover {
+  border-color: var(--metro-emerald);
+}
+
+.radio-card-label input[type="radio"]:checked + .radio-card-content strong {
+  color: var(--metro-emerald);
+}
+
+.radio-card-label:has(input[type="radio"]:checked) {
+  border-left-color: var(--metro-emerald);
+  background: #f9fbf9;
+}
+
+.radio-card-content strong {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.radio-card-content small {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* AI Realtime Badge inside Form */
+.toxicity-badge-pill {
+  display: inline-block;
+  font-size: 0.84rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.toxicity-badge-pill.safe {
+  background: var(--color-safe);
+  color: #ffffff;
+}
+
+.toxicity-badge-pill.warning {
+  background: var(--color-warning);
+  color: #ffffff;
+}
+
+.toxicity-badge-pill.critical {
+  background: var(--color-critical);
+  color: #ffffff;
+}
+
+/* Evidence Upload Dropzone */
+.dropzone-box {
+  border: 2px dashed var(--border-dark);
+  padding: 30px 20px;
+  text-align: center;
+  background: #fafafa;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.dropzone-box:hover, .dropzone-box.drag-hover {
+  border-color: var(--metro-emerald);
+  background: #f0fdf4;
+}
+
+.dropzone-icon {
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+}
+
+.evidence-preview-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.evidence-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #e5e7eb;
+  padding: 6px 12px;
+  font-size: 0.84rem;
+  color: var(--text-primary);
+  border-left: 3px solid var(--metro-emerald);
+}
+
+.evidence-chip .remove-btn {
+  background: none;
+  border: none;
+  color: var(--color-critical);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ========================================================
+   AI Toxicity Analyzer Tool Bench
+   ======================================================== */
+.analyzer-card {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.presets-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.presets-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.btn-preset-chip {
+  background: #ffffff;
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-preset-chip:hover {
+  border-color: var(--metro-emerald);
+  color: var(--metro-emerald);
+  background: #f9fbf9;
+}
+
+.analyzer-input-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+/* Results Section */
+.ai-results-wrapper {
+  margin-top: 28px;
+  border-top: 2px solid var(--border-color);
+  padding-top: 24px;
+}
+
+.ai-score-dashboard {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 24px;
+  align-items: center;
+  background: #ffffff;
+  padding: 24px;
+  border: 1px solid var(--border-color);
+  border-left: 6px solid var(--metro-emerald);
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  .ai-score-dashboard {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+.gauge-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.circular-gauge {
+  position: relative;
+  width: 130px;
+  height: 130px;
+}
+
+.circular-gauge svg {
+  transform: rotate(-90deg);
+  width: 100%;
+  height: 100%;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #e5e7eb;
+  stroke-width: 12;
+}
+
+.circle-val {
+  fill: none;
+  stroke: var(--metro-emerald);
+  stroke-width: 12;
+  stroke-dasharray: 339.29;
+  stroke-dashoffset: 339.29;
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+.gauge-inner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.gauge-inner-text h3 {
+  font-size: 2rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--metro-emerald);
+}
+
+.gauge-inner-text span {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.score-meta-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.severity-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  width: fit-content;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.severity-badge.low {
+  background: var(--color-safe);
+  color: #ffffff;
+}
+
+.severity-badge.medium {
+  background: var(--color-warning);
+  color: #ffffff;
+}
+
+.severity-badge.high, .severity-badge.critical {
+  background: var(--color-critical);
+  color: #ffffff;
+}
+
+.action-guidance-box {
+  background: #f8fafc;
+  padding: 14px 18px;
+  border-left: 4px solid var(--metro-emerald);
+  font-size: 0.92rem;
+}
+
+/* Category Bars */
+.categories-breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.category-bar-item {
+  background: #ffffff;
+  padding: 16px;
+  border: 1px solid var(--border-color);
+  border-top: 3px solid var(--metro-purple);
+}
+
+.bar-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.progress-track {
+  height: 12px;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--metro-emerald);
+  transition: width 0.4s ease;
+}
+
+/* Toxic Highlight Snippet */
+.highlighted-box {
+  background: #fffbeb;
+  border: 2px solid #fde68a;
+  border-left: 6px solid var(--metro-amber);
+  padding: 16px 20px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.toxic-flag-highlight {
+  background: #fef08a;
+  color: #78350f;
+  padding: 2px 6px;
+  font-weight: 700;
+  border-bottom: 2px solid var(--metro-amber);
+}
+
+.flagged-chips-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.flag-chip {
+  background: #fff7ed;
+  color: #c2410c;
+  border: 1px solid #ffedd5;
+  border-left: 3px solid var(--metro-orange);
+  padding: 4px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* ========================================================
+   Case Tracker & Windows 8 Step Timeline
+   ======================================================== */
+.tracker-search-panel {
+  max-width: 780px;
+  margin: 0 auto 32px;
+}
+
+.tracker-input-row {
+  display: flex;
+  gap: 8px;
+}
+
+.demo-pills-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.demo-pill-btn {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--metro-emerald);
+  color: var(--text-primary);
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all var(--transition-fast);
+}
+
+.demo-pill-btn:hover {
+  background: #f0fdf4;
+  border-color: var(--metro-emerald);
+}
+
+.timeline-dossier-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .timeline-dossier-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.timeline-steps {
+  position: relative;
+  padding-left: 10px;
+}
+
+.timeline-step {
+  display: flex;
+  gap: 18px;
+  position: relative;
+  padding-bottom: 30px;
+}
+
+.timeline-step:last-child {
+  padding-bottom: 0;
+}
+
+.step-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Windows 8 Flat Square Milestone Icons */
+.step-icon {
+  width: 32px;
+  height: 32px;
+  background: #e5e7eb;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  z-index: 2;
+}
+
+.step-line {
+  width: 2px;
+  flex-grow: 1;
+  background: #d1d5db;
+  margin-top: 2px;
+}
+
+.timeline-step.completed .step-icon {
+  background: var(--metro-emerald);
+  color: #ffffff;
+}
+
+.timeline-step.completed .step-line {
+  background: var(--metro-emerald);
+}
+
+.timeline-step.active .step-icon {
+  background: var(--metro-purple);
+  color: #ffffff;
+}
+
+.timeline-step.active .step-content h4 {
+  color: var(--metro-purple);
+  font-weight: 600;
+}
+
+.step-content h4 {
+  font-size: 1.05rem;
+  margin-bottom: 2px;
+}
+
+.step-content p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.step-badge-live {
+  display: inline-block;
+  background: var(--metro-purple);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  margin-top: 6px;
+  text-transform: uppercase;
+}
+
+/* Status Badges */
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.badge-submitted { background: #f3eefc; color: var(--metro-purple); border-left: 3px solid var(--metro-purple); }
+.badge-review { background: #fef7e0; color: var(--metro-amber); border-left: 3px solid var(--metro-amber); }
+.badge-investigation { background: #fff0e6; color: var(--metro-orange); border-left: 3px solid var(--metro-orange); }
+.badge-action { background: #ea580c; color: #ffffff; }
+.badge-resolved { background: var(--metro-emerald); color: #ffffff; }
+
+/* Case Details Sidebar & Counselor Chat */
+.case-side-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-top: 4px solid var(--metro-teal);
+  padding: 24px;
+}
+
+.case-meta-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.case-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.88rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 8px;
+}
+
+.counselor-chat-box {
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  height: 280px;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 4px;
+}
+
+.chat-msg {
+  display: flex;
+  gap: 8px;
+  font-size: 0.86rem;
+}
+
+.chat-msg.student {
+  flex-direction: row-reverse;
+}
+
+.chat-msg.counselor .msg-avatar {
+  font-size: 1.2rem;
+}
+
+.msg-bubble {
+  background: #ffffff;
+  padding: 10px 14px;
+  border: 1px solid var(--border-color);
+  max-width: 82%;
+  color: var(--text-primary);
+}
+
+.chat-msg.student .msg-bubble {
+  background: var(--metro-emerald);
+  color: #ffffff;
+  border: none;
+}
+
+.msg-time {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 4px;
+}
+
+.chat-input-row {
+  display: flex;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+/* ========================================================
+   Windows 8 Metro Dialog Modals
+   ======================================================== */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-backdrop.active {
+  display: flex;
+}
+
+.modal-card {
+  background: #ffffff;
+  border: 2px solid var(--border-dark);
+  border-top: 6px solid var(--metro-emerald);
+  max-width: 580px;
+  width: 100%;
+  padding: 30px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modal-close-x {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.modal-close-x:hover {
+  color: var(--text-primary);
+}
+
+/* Receipt Card */
+.receipt-box {
+  background: #f8fafc;
+  border: 2px dashed var(--metro-emerald);
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.receipt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+}
+
+.receipt-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  font-size: 0.88rem;
+}
+
+/* ========================================================
+   Quiz & Awareness Module (Metro Question Cards)
+   ======================================================== */
+.quiz-card {
+  max-width: 760px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-top: 6px solid var(--metro-purple);
+  padding: 34px;
+  box-shadow: var(--shadow-flat);
+}
+
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 12px;
+}
+
+.quiz-badge {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--metro-purple);
+  text-transform: uppercase;
+}
+
+.quiz-score-pill {
+  background: var(--metro-purple);
+  color: #ffffff;
+  padding: 4px 12px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.quiz-question-title {
+  font-size: 1.35rem;
+  font-weight: 400;
+  margin-bottom: 24px;
+  line-height: 1.4;
+}
+
+.quiz-options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.quiz-opt-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  background: #ffffff;
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+}
+
+.quiz-opt-btn:hover:not(:disabled) {
+  border-color: var(--metro-purple);
+  background: #fdfcff;
+}
+
+.opt-letter {
+  width: 28px;
+  height: 28px;
+  background: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.quiz-opt-btn.correct-choice {
+  background: #e6f4ea !important;
+  border-color: var(--metro-emerald) !important;
+  color: #064e3b !important;
+  font-weight: 600;
+}
+
+.quiz-opt-btn.wrong-choice {
+  background: #fff0e6 !important;
+  border-color: var(--metro-orange) !important;
+  color: #7c2d12 !important;
+  font-weight: 600;
+}
+
+.quiz-feedback-box {
+  padding: 14px 18px;
+  font-size: 0.92rem;
+  margin-bottom: 20px;
+  border-left: 4px solid var(--metro-emerald);
+}
+
+.quiz-feedback-box.success {
+  background: #e6f4ea;
+  border-left-color: var(--metro-emerald);
+  color: #064e3b;
+}
+
+.quiz-feedback-box.danger {
+  background: #fff0e6;
+  border-left-color: var(--metro-orange);
+  color: #7c2d12;
+}
+
+/* Certificate Preview (Windows 8 Clean Document) */
+.certificate-preview-box {
+  background: #ffffff;
+  border: 4px solid var(--metro-emerald);
+  padding: 28px;
+  margin: 28px 0;
+  box-shadow: var(--shadow-tile);
+  color: var(--text-primary);
+}
+
+.cert-header {
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+}
+
+.cert-seal {
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--metro-emerald);
+  font-size: 0.9rem;
+}
+
+.cert-meta {
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid var(--border-color);
+  padding-top: 14px;
+  margin-top: 20px;
+}
