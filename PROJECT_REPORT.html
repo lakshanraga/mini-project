@@ -9,7 +9,7 @@
 
     @page {
       size: A4;
-      margin: 18mm 16mm 18mm 16mm;
+      margin: 12mm 12mm 12mm 12mm;
     }
 
     * {
@@ -19,169 +19,155 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #1f2937;
-      background: #f3f4f6;
-      line-height: 1.5;
-      font-size: 13.5px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #111827;
+      background: #e5e7eb;
+      line-height: 1.45;
+      font-size: 13px;
     }
 
     /* Print toolbar (hidden when printing) */
     .print-bar {
       position: sticky;
       top: 0;
-      background: #008a00;
+      background: #111827;
       color: #ffffff;
       padding: 12px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       z-index: 9999;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     }
 
     .btn-print {
-      background: #ffffff;
-      color: #008a00;
+      background: #c2850c;
+      color: #ffffff;
       font-weight: 700;
       border: none;
-      padding: 8px 18px;
+      padding: 8px 20px;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 13.5px;
       text-transform: uppercase;
       letter-spacing: 0.04em;
     }
 
     .btn-print:hover {
-      background: #e6f4ea;
+      background: #a36f08;
     }
 
-    /* A4 Page Container */
+    /* A4 Page Container with Exact 4-Side Outer Border Line */
     .report-sheet {
       background: #ffffff;
       width: 210mm;
       min-height: 297mm;
       margin: 20px auto;
-      padding: 22mm 20mm;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      padding: 16mm 16mm 16mm 16mm;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
       position: relative;
+      /* Four-sided border line matching the reference sample */
+      border: 1px solid #111111;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* Running Header & Footer */
-    .sheet-header {
-      display: flex;
-      justify-content: space-between;
+    .sheet-content {
+      flex-grow: 1;
+    }
+
+    /* Running Header (Top right grey title) */
+    .sheet-top-header {
+      text-align: right;
       font-size: 10px;
       color: #6b7280;
-      border-bottom: 1px solid #e5e7eb;
-      padding-bottom: 6px;
-      margin-bottom: 22px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      margin-bottom: 24px;
     }
 
-    .sheet-footer {
-      position: absolute;
-      bottom: 14mm;
-      left: 20mm;
-      right: 20mm;
-      display: flex;
-      justify-content: space-between;
-      font-size: 10px;
+    /* Running Footer (Bottom center report page) */
+    .sheet-bottom-footer {
+      text-align: center;
+      font-size: 10.5px;
       color: #6b7280;
-      border-top: 1px solid #e5e7eb;
-      padding-top: 6px;
+      margin-top: 20px;
+      padding-top: 8px;
     }
 
-    h1.project-title {
-      font-size: 20px;
+    h1.main-title {
+      font-size: 18px;
       font-weight: 700;
       text-align: center;
-      margin-top: 10px;
-      margin-bottom: 4px;
-      color: #111827;
-      letter-spacing: 0.02em;
-    }
-
-    h2.project-sub {
-      font-size: 14px;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 26px;
-      color: #008a00;
-      text-transform: uppercase;
+      margin-bottom: 6px;
+      color: #000000;
       letter-spacing: 0.04em;
     }
 
-    h2.section-heading {
-      font-size: 16px;
+    h2.project-sub {
+      font-size: 13.5px;
       font-weight: 700;
-      color: #111827;
-      margin: 18px 0 10px 0;
-      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 24px;
+      color: #000000;
       letter-spacing: 0.02em;
     }
 
-    h3.sub-heading {
+    /* Section Headings: Solid Black */
+    h2.section-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #000000;
+      margin: 16px 0 8px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+    }
+
+    /* Subheadings: Golden-Amber Brown (matching reference PDF) */
+    h3.sub-title {
       font-size: 13.5px;
       font-weight: 700;
-      color: #008a00;
-      margin: 14px 0 8px 0;
+      color: #c2850c; /* Exact warm golden-amber from CANTENEX sample */
+      margin: 14px 0 6px 0;
     }
 
     p {
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       text-align: justify;
-      color: #374151;
+      color: #1f2937;
     }
 
-    ul {
-      margin: 8px 0 14px 20px;
-      color: #374151;
+    ul, ol {
+      margin: 6px 0 10px 22px;
+      color: #1f2937;
     }
 
     li {
       margin-bottom: 4px;
     }
 
-    ol {
-      margin: 8px 0 14px 20px;
-      color: #374151;
-    }
-
-    ol li {
-      margin-bottom: 10px;
-    }
-
-    ol li strong {
-      color: #111827;
-    }
-
-    /* Clean Tables */
+    /* Exact Tables from Sample PDF (Dark Solid Navy/Slate Header) */
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 12px 0 18px 0;
-      font-size: 12.5px;
+      margin: 8px 0 14px 0;
+      font-size: 11.5px;
     }
 
     th {
-      background: #f3f4f6;
-      color: #111827;
-      font-weight: 700;
-      padding: 8px 12px;
-      border: 1px solid #d1d5db;
+      background: #0f172a; /* Deep navy/slate from sample PDF */
+      color: #ffffff;
+      font-weight: 600;
+      padding: 6px 10px;
+      border: 1px solid #cbd5e1;
       text-align: left;
     }
 
     td {
-      padding: 8px 12px;
-      border: 1px solid #d1d5db;
-      color: #374151;
+      padding: 5px 10px;
+      border: 1px solid #cbd5e1;
+      color: #1f2937;
     }
 
     tr:nth-child(even) td {
-      background: #f9fafb;
+      background: #fcfcfc;
     }
 
     .badge-pass {
@@ -193,41 +179,48 @@
     pre {
       background: #f8fafc;
       border: 1px solid #e2e8f0;
-      border-left: 4px solid #008a00;
-      padding: 12px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      line-height: 1.4;
+      padding: 10px 12px;
+      font-family: 'JetBrains Mono', Consolas, monospace;
+      font-size: 10.5px;
+      line-height: 1.35;
       overflow-x: auto;
-      margin: 10px 0 16px 0;
-      color: #1e293b;
+      margin: 8px 0 12px 0;
+      color: #0f172a;
     }
 
     .diagram-box {
-      background: #fafcfb;
-      border: 1px solid #d1d5db;
-      padding: 16px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      line-height: 1.35;
-      margin: 14px 0 20px 0;
-      color: #047857;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      padding: 12px;
+      font-family: 'JetBrains Mono', Consolas, monospace;
+      font-size: 10px;
+      line-height: 1.3;
+      margin: 10px 0 8px 0;
+      color: #0f172a;
       overflow-x: auto;
     }
 
     .fig-caption {
       text-align: center;
-      font-size: 11px;
+      font-size: 10.5px;
       color: #6b7280;
       font-style: italic;
-      margin-top: 6px;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
+    }
+
+    /* Visual Output Mockup Frames */
+    .output-card {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 12px;
+      margin: 8px 0 6px 0;
     }
 
     /* Print Styles */
     @media print {
       body {
         background: #ffffff;
+        padding: 0;
       }
       .print-bar {
         display: none !important;
@@ -236,7 +229,9 @@
         margin: 0;
         box-shadow: none;
         width: 100%;
+        min-height: 297mm;
         page-break-after: always;
+        border: 1px solid #000000 !important; /* Continuous 4-side line */
       }
       .report-sheet:last-child {
         page-break-after: avoid;
@@ -246,10 +241,10 @@
 </head>
 <body>
 
-  <!-- Top Bar for Browser Preview -->
+  <!-- Top Print Trigger Bar -->
   <div class="print-bar">
     <div>
-      <strong>SAFECAMPUS Project Report</strong> &bull; Exact College Mini Project Format
+      <strong>SAFECAMPUS Project Report</strong> &bull; Four-Sided Border Line & Golden-Amber Heading Style
     </div>
     <button type="button" class="btn-print" onclick="window.print()">
       🖨️ Print / Save as PDF
@@ -260,79 +255,78 @@
        PAGE 1: AIM & REQUIREMENTS
        ==================================================== -->
   <div class="report-sheet">
-    <div class="sheet-header">
-      <span>SAFECAMPUS — College Cyberbullying Prevention & Incident Redressal Portal</span>
-      <span>SafeCampus Mini Project Report</span>
+    <div class="sheet-top-header">
+      SAFECAMPUS — College Cyberbullying Prevention & Incident Redressal Platform
     </div>
 
-    <h1 class="project-title">MINI PROJECT</h1>
-    <h2 class="project-sub">SAFECAMPUS - COLLEGE CYBERBULLYING PREVENTION & INCIDENT REDRESSAL PORTAL</h2>
+    <div class="sheet-content">
+      <h1 class="main-title">MINI PROJECT</h1>
+      <h2 class="project-sub">SAFECAMPUS - COLLEGE CYBERBULLYING PREVENTION & INCIDENT REDRESSAL PLATFORM</h2>
 
-    <h2 class="section-heading">1. AIM</h2>
-    <p>
-      To design and develop a responsive, client-side <strong>College Cyberbullying Prevention & Incident Redressal Platform</strong> using <strong>HTML5, CSS3 (Windows 8 Metro UI Kit), and Vanilla JavaScript</strong> with browser LocalStorage database persistence and client-side Natural Language Processing (NLP) toxicity detection.
-    </p>
-    <ul>
-      <li>Provide a confidential and anonymous channel for college students to report cyberbullying and harassment.</li>
-      <li>Real-time screening of message transcripts and social media comments using a client-side AI/NLP Toxicity Engine.</li>
-      <li>Issue unique cryptographic-style Case Tracking IDs (<code>CBP-2026-XXXX</code>) and printable digital grievance slips.</li>
-      <li>Implement an interactive 5-stage case inquiry progress timeline with direct counselor communication.</li>
-      <li>Provide administrative oversight controls, analytics charts, status management, and dossier logs for the College Disciplinary Committee.</li>
-      <li>Educate students on legal rights under the Indian Information Technology Act (IT Act 2000) and UGC anti-ragging mandates.</li>
-      <li>Support 100% static, zero-server standalone execution across mobile, tablet, laptop, and desktop displays.</li>
-    </ul>
+      <h2 class="section-title">1. AIM</h2>
+      <p>
+        To design and develop a responsive, client-side College Cyberbullying Prevention & Incident Redressal Platform using HTML, CSS (Windows 8 Metro UI Kit) and JavaScript with browser LocalStorage database persistence and client-side Natural Language Processing (NLP) toxicity detection.
+      </p>
+      <ul>
+        <li>Reduce fear and stigma in reporting campus cyberbullying through 100% confidential intake.</li>
+        <li>Allow students to analyze suspicious comments or direct messages in real time for toxic patterns.</li>
+        <li>Enable categorized grievance intake across social media platforms (Instagram, WhatsApp, Discord).</li>
+        <li>Generate digital incident tracking keys (<code>CBP-2026-XXXX</code>) and printable grievance receipts.</li>
+        <li>Provide an interactive 5-stage case progress timeline and counselor support line.</li>
+        <li>Provide administrative controls for disciplinary officers to inspect evidence dossiers and update case stages.</li>
+        <li>Support mobile, tablet, laptop, desktop and kiosk displays with zero server dependency.</li>
+      </ul>
 
-    <h2 class="section-heading">2. SOFTWARE AND HARDWARE REQUIREMENTS</h2>
-    <h3 class="sub-heading">2.1 Software Requirements</h3>
-    <table>
-      <thead>
-        <tr>
-          <th style="width: 40%;">Software / Technology</th>
-          <th>Purpose</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>HTML5</strong></td>
-          <td>Semantic web page structure, forms, and accessibility markup</td>
-        </tr>
-        <tr>
-          <td><strong>CSS3</strong></td>
-          <td>Windows 8 Metro UI Kit styling, flat colorful live tiles, and responsive grid</td>
-        </tr>
-        <tr>
-          <td><strong>JavaScript (ES6+)</strong></td>
-          <td>Client-side interaction, NLP lexical classifier, and dynamic DOM updates</td>
-        </tr>
-        <tr>
-          <td><strong>Browser LocalStorage</strong></td>
-          <td>Client-side persistent database for complaint records and audit notes</td>
-        </tr>
-        <tr>
-          <td><strong>Git & GitHub</strong></td>
-          <td>Version control and remote repository management</td>
-        </tr>
-        <tr>
-          <td><strong>GitHub Pages</strong></td>
-          <td>Static frontend application deployment</td>
-        </tr>
-        <tr>
-          <td><strong>Web Browser</strong></td>
-          <td>Application execution (Chrome, Edge, Firefox, Safari)</td>
-        </tr>
-      </tbody>
-    </table>
+      <h2 class="section-title">2. SOFTWARE AND HARDWARE REQUIREMENTS</h2>
+      <h3 class="sub-title">2.1 Software Requirements</h3>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 45%;">Software / Technology</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>HTML5</td>
+            <td>Web page structure and semantic document layout</td>
+          </tr>
+          <tr>
+            <td>CSS3</td>
+            <td>Windows 8 Metro UI Kit styling, flat colorful live tiles and responsive design</td>
+          </tr>
+          <tr>
+            <td>JavaScript (ES6+)</td>
+            <td>Client-side interaction, NLP lexical classifier and dynamic DOM updating</td>
+          </tr>
+          <tr>
+            <td>Browser LocalStorage</td>
+            <td>Persistent client-side database for complaints, investigation logs and audit notes</td>
+          </tr>
+          <tr>
+            <td>Git & GitHub</td>
+            <td>Version control and remote code repository</td>
+          </tr>
+          <tr>
+            <td>GitHub Pages</td>
+            <td>Static web application deployment</td>
+          </tr>
+          <tr>
+            <td>Web Browser</td>
+            <td>Application execution (Chrome, Edge, Firefox, Safari)</td>
+          </tr>
+        </tbody>
+      </table>
 
-    <h3 class="sub-heading">2.2 Hardware Requirements</h3>
-    <ul>
-      <li>Computer/Laptop with minimum 4 GB RAM.</li>
-      <li>Smartphone or tablet for responsive mobile testing.</li>
-      <li>Display screen with minimum resolution 1024 x 768 px.</li>
-    </ul>
+      <h3 class="sub-title">2.2 Hardware Requirements</h3>
+      <ul>
+        <li>Computer/Laptop with minimum 4 GB RAM.</li>
+        <li>Smartphone or tablet for responsive testing.</li>
+      </ul>
+    </div>
 
-    <div class="sheet-footer">
-      <span>SAFECAMPUS Mini Project Report</span>
-      <span>Page 1</span>
+    <div class="sheet-bottom-footer">
+      SAFECAMPUS Mini Project Report • Page 1
     </div>
   </div>
 
@@ -340,58 +334,63 @@
        PAGE 2: PROCEDURE
        ==================================================== -->
   <div class="report-sheet">
-    <div class="sheet-header">
-      <span>SAFECAMPUS — College Cyberbullying Prevention & Incident Redressal Portal</span>
-      <span>SafeCampus Mini Project Report</span>
+    <div class="sheet-top-header">
+      SAFECAMPUS — College Cyberbullying Prevention & Incident Redressal Platform
     </div>
 
-    <h2 class="section-heading">3. PROCEDURE</h2>
-    <ol>
-      <li>
-        <strong>Design the User Interface:</strong><br>
-        The SAFECAMPUS interface was designed using HTML5 and CSS3 following the <strong>Windows 8 Metro / Modern UI</strong> design kit. The interface includes the top navigation bar, live tile hub, AI toxicity test bench, anonymous intake form, progress tracking timeline, legal rights cards, awareness quiz, and administrative grievance center.
-      </li>
-      <li>
-        <strong>Develop the Frontend:</strong><br>
-        Vanilla JavaScript was used to implement tab routing, form validation, dynamic tile updates, file attachment simulations, and theme management without external library overhead.
-      </li>
-      <li>
-        <strong>Develop the Real-Time AI NLP Engine:</strong><br>
-        A client-side rule-based and lexical Natural Language Processing classifier was developed to evaluate threat patterns, blackmail phrases, hate speech, and derogatory remarks to output a 0–100% toxicity score.
-      </li>
-      <li>
-        <strong>Integrate Client-Side Persistence:</strong><br>
-        HTML5 <code>localStorage</code> was integrated as the client-side database to store grievances, complainant credentials, timestamps, investigation notes, and status transitions locally.
-      </li>
-      <li>
-        <strong>Implement Reporting Wizard:</strong><br>
-        Students can select between 100% Anonymous mode or Identified mode, choose incident categories, specify digital platforms, and attach evidence screenshots.
-      </li>
-      <li>
-        <strong>Generate Digital Token and Grievance Slip:</strong><br>
-        After successful complaint lodging, a unique Case Tracking ID (e.g. <code>CBP-2026-1042</code>) and printable grievance slip are automatically minted.
-      </li>
-      <li>
-        <strong>Implement 5-Stage Case Timeline:</strong><br>
-        Complainants can monitor active grievances across 5 sequential verification stages: Submitted, AI Triaged, Under Investigation, Action Taken, and Resolved.
-      </li>
-      <li>
-        <strong>Implement Student Counselor Safe Line:</strong><br>
-        An interactive counseling chat simulator was constructed to extend psychological first-aid and advice to victim students.
-      </li>
-      <li>
-        <strong>Implement Disciplinary Administrative Oversight:</strong><br>
-        College grievance committee officials can review case dossiers, append formal inquiry notes, update resolution statuses, and export audit reports to CSV.
-      </li>
-      <li>
-        <strong>Test and Deploy the Application:</strong><br>
-        The static application was verified across mobile, tablet, and desktop viewports, tested for zero-server execution, and pushed to GitHub version control.
-      </li>
-    </ol>
+    <div class="sheet-content">
+      <ul>
+        <li>Internet connection (for initial Google Fonts and helpline URL verification).</li>
+        <li>Large display/TV for campus kiosk-mode demonstration.</li>
+      </ul>
 
-    <div class="sheet-footer">
-      <span>SAFECAMPUS Mini Project Report</span>
-      <span>Page 2</span>
+      <h2 class="section-title">3. PROCEDURE</h2>
+      <ol>
+        <li>
+          <strong>Design the User Interface:</strong><br>
+          The SAFECAMPUS interface was designed using HTML5 and CSS3 following the Windows 8 Metro UI Kit. The interface includes the navigation bar, live tile hub, AI toxicity test bench, anonymous incident wizard, progress tracking timeline, counseling line, legal rights cards and administrative grievance sections.
+        </li>
+        <li>
+          <strong>Develop the Frontend:</strong><br>
+          JavaScript was used to implement tab navigation, live tile interactions, evidence file handling, grievance form validation and dynamic updating of the application.
+        </li>
+        <li>
+          <strong>Develop the AI NLP Toxicity Engine:</strong><br>
+          A client-side rule-based and lexical Natural Language Processing classifier was developed to evaluate threat patterns, blackmail phrases, hate speech and derogatory insults to compute an aggregate toxicity score (0–100%).
+        </li>
+        <li>
+          <strong>Integrate the Database:</strong><br>
+          HTML5 LocalStorage was integrated as the persistent client-side database to store grievances, complainant credentials, timestamps, investigation notes and resolution statuses locally.
+        </li>
+        <li>
+          <strong>Implement Incident Reporting:</strong><br>
+          The student selects reporting privacy (Anonymous vs. Identified), specifies incident category and digital platform, enters the description, attaches evidence screenshots and confirms the report.
+        </li>
+        <li>
+          <strong>Generate Digital Token and Grievance Receipt:</strong><br>
+          After successful incident submission, a unique Case Tracking ID (e.g. <code>CBP-2026-1042</code>) and printable digital grievance receipt are generated containing relevant complaint and verification metadata.
+        </li>
+        <li>
+          <strong>Implement 5-Stage Case Tracking:</strong><br>
+          The complainant can monitor grievance progress across five sequential verification stages: Submitted, AI Triaged, Under Investigation, Action Taken, and Resolved.
+        </li>
+        <li>
+          <strong>Implement Responsive Design:</strong><br>
+          CSS responsive rules and flex/grid layouts were used to adapt the application to mobile phones, tablets, laptops, desktops and kiosk displays. Portrait and landscape orientations are supported.
+        </li>
+        <li>
+          <strong>Test the Application:</strong><br>
+          The major application modules were tested, including anonymous intake, identified intake, AI threat pattern classification, evidence drag-and-drop, case lookup, counselor replies, admin authentication and CSV audit export.
+        </li>
+        <li>
+          <strong>Deploy the Application:</strong><br>
+          The complete static frontend was verified for zero-server execution and pushed to the remote GitHub repository.
+        </li>
+      </ol>
+    </div>
+
+    <div class="sheet-bottom-footer">
+      SAFECAMPUS Mini Project Report • Page 2
     </div>
   </div>
 
@@ -399,17 +398,17 @@
        PAGE 3: SYSTEM ARCHITECTURE & CODE (HTML)
        ==================================================== -->
   <div class="report-sheet">
-    <div class="sheet-header">
-      <span>SAFECAMPUS — College Cyberbullying Prevention & Incident Redressal Portal</span>
-      <span>SafeCampus Mini Project Report</span>
+    <div class="sheet-top-header">
+      SAFECAMPUS — College Cyberbullying Prevention & Incident Redressal Platform
     </div>
 
-    <h2 class="section-heading">4. SYSTEM ARCHITECTURE</h2>
-    <p>
-      The deployed SAFECAMPUS architecture consists of a client-side Windows 8 Metro frontend, local lexical NLP classifier, and browser-managed LocalStorage database.
-    </p>
+    <div class="sheet-content">
+      <h2 class="section-title">4. SYSTEM ARCHITECTURE</h2>
+      <p>
+        The deployed SAFECAMPUS architecture consists of a client-side Windows 8 Metro frontend, local lexical NLP classifier and browser-managed LocalStorage database.
+      </p>
 
-    <div class="diagram-box">
+      <div class="diagram-box">
 +-----------------------------------------------------------------------------------------+
 |                                  USER / CLIENT DEVICES                                  |
 |                 Mobile (Android/iOS)  |  Tablet  |  Laptop/Desktop (Windows/macOS)       |
@@ -418,7 +417,7 @@
                                              ▼
 +-----------------------------------------------------------------------------------------+
 |                        SAFECAMPUS FRONTEND LAYER (HTML5 + CSS3)                         |
-|                 Windows 8 Metro UI Kit &bull; Segoe UI Typography &bull; Flat Live Tiles               |
+|                 Windows 8 Metro UI Kit • Segoe UI Typography • Flat Live Tiles          |
 |                                                                                         |
 |  [🏠 Home Hub]   [🔍 AI Detector]   [📝 Report Form]   [📌 Case Tracker]   [🔒 Admin Cell]|
 +-----------------------------------------------------------------------------------------+
@@ -439,14 +438,14 @@
 |                                PERSISTENT STORAGE LAYER                                 |
 |                                                                                         |
 |                         HTML5 Browser LocalStorage ('safecampus_incidents')             |
-|                  JSON Encrypted Dossiers &bull; Timestamps &bull; Committee Action Notes       |
+|                  JSON Encrypted Dossiers • Timestamps • Committee Action Notes          |
 +-----------------------------------------------------------------------------------------+
-    </div>
-    <div class="fig-caption">Figure 1. SAFECAMPUS client-side system architecture.</div>
+      </div>
+      <div class="fig-caption">Figure 1. SAFECAMPUS client-side system architecture.</div>
 
-    <h2 class="section-heading">5. PROGRAM CODE</h2>
-    <h3 class="sub-heading">5.1 HTML – Main Application Structure</h3>
-    <pre>
+      <h2 class="section-title">5. PROGRAM CODE</h2>
+      <h3 class="sub-title">5.1 HTML – Main Application Structure</h3>
+      <pre>
 &lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
@@ -469,110 +468,120 @@
       &lt;/div&gt;
       &lt;nav&gt;
         &lt;ul class="nav-links" id="navMenu"&gt;
-          &lt;li&gt;&lt;a class="nav-link active" data-tab="home" href="#home"&gt;🏠 Home&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a class="nav-link" data-tab="analyzer" href="#analyzer"&gt;🔍 AI Toxicity Detector&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a class="nav-link" data-tab="report" href="#report"&gt;📝 Report Incident&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a class="nav-link" data-tab="tracker" href="#tracker"&gt;📌 Track Case&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a class="nav-link" data-tab="resources" href="#resources"&gt;⚖️ Helplines & Law&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a class="nav-link" data-tab="quiz" href="#quiz"&gt;🎓 Awareness Quiz&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a class="nav-link" data-tab="admin" href="#admin"&gt;🔒 Grievance Cell&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class="nav-link active" data-tab="home" href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class="nav-link" data-tab="analyzer" href="#analyzer"&gt;AI Toxicity Detector&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class="nav-link" data-tab="report" href="#report"&gt;Report Incident&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class="nav-link" data-tab="tracker" href="#tracker"&gt;Track Case&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class="nav-link" data-tab="resources" href="#resources"&gt;Helplines & Law&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class="nav-link" data-tab="quiz" href="#quiz"&gt;Awareness Quiz&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class="nav-link" data-tab="admin" href="#admin"&gt;Grievance Cell&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/nav&gt;
+      &lt;div class="nav-actions"&gt;
+        &lt;button type="button" class="btn-sos btn-open-sos"&gt;🚨 SOS (1930)&lt;/button&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
   &lt;/header&gt;
-    </pre>
+      </pre>
+    </div>
 
-    <div class="sheet-footer">
-      <span>SAFECAMPUS Mini Project Report</span>
-      <span>Page 3</span>
+    <div class="sheet-bottom-footer">
+      SAFECAMPUS Mini Project Report • Page 3
     </div>
   </div>
 
   <!-- ====================================================
-       PAGE 4: PROGRAM CODE (CSS)
+       PAGE 4: PROGRAM CODE (HTML cont. & CSS)
        ==================================================== -->
   <div class="report-sheet">
-    <div class="sheet-header">
-      <span>SAFECAMPUS — College Cyberbullying Prevention & Incident Redressal Portal</span>
-      <span>SafeCampus Mini Project Report</span>
+    <div class="sheet-top-header">
+      SAFECAMPUS — College Cyberbullying Prevention & Incident Redressal Platform
     </div>
 
-    <h3 class="sub-heading">5.2 CSS – Windows 8 Metro UI Responsive Design</h3>
-    <pre>
-/* Windows 8 Metro Design Language Variables */
-:root {
-  --bg-primary: #f0f2f5;
-  --bg-secondary: #ffffff;
-  --border-color: #d1d5db;
-  --text-primary: #1f2937;
-  --text-secondary: #4b5563;
+    <div class="sheet-content">
+      <pre>
+  &lt;main class="container"&gt;
+    &lt;section id="tab-home" class="portal-tab-section"&gt;
+      &lt;div class="hero-section"&gt;
+        &lt;h1 class="hero-title"&gt;Speak Up Without Fear.&lt;/h1&gt;
+        &lt;div class="features-grid"&gt;
+          &lt;div class="feature-card" data-navigate="report"&gt;
+            &lt;h3&gt;Report Incident&lt;/h3&gt;
+            &lt;p&gt;Anonymous and identified grievance intake.&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class="feature-card" data-navigate="analyzer"&gt;
+            &lt;h3&gt;AI Toxicity Detector&lt;/h3&gt;
+            &lt;p&gt;Real-time threat and harassment scoring.&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+      </pre>
 
-  /* Windows 8 Metro Solid Accent Colors */
-  --metro-emerald: #008a00;
-  --metro-purple: #603cba;
-  --metro-orange: #ea580c;
-  --metro-amber: #d97706;
-  --metro-teal: #008272;
-
-  /* Flat Metro Zero-Radius Geometry */
-  --radius-sm: 0px;
-  --radius-md: 0px;
-  --radius-lg: 0px;
-}
-
-*, *::before, *::after {
+      <h3 class="sub-title">5.2 CSS – Responsive Design</h3>
+      <pre>
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  border-radius: 0 !important; /* Authentic Metro Rule */
+  border-radius: 0 !important; /* Windows 8 Metro Flat Rule */
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #f0f2f5;
+  color: #1f2937;
 }
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 }
 
-/* Metro Live Tiles */
 .feature-card {
   color: #ffffff;
   padding: 26px 24px;
   min-height: 200px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.15s ease;
 }
-.feature-card:hover {
-  transform: scale(0.98);
-}
-.feature-card:nth-child(1) { background: #008a00; }
-.feature-card:nth-child(2) { background: #603cba; }
-.feature-card:nth-child(3) { background: #008272; }
-.feature-card:nth-child(4) { background: #ea580c; }
-.feature-card:nth-child(5) { background: #c68a00; }
-.feature-card:nth-child(6) { background: #553c9a; }
 
-@media (max-width: 900px) {
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 68px;
-    left: 0;
-    right: 0;
-    background: #ffffff;
-    flex-direction: column;
+.feature-card:nth-child(1) { background: #008a00; } /* Emerald */
+.feature-card:nth-child(2) { background: #603cba; } /* Purple */
+.feature-card:nth-child(3) { background: #008272; } /* Teal */
+.feature-card:nth-child(4) { background: #ea580c; } /* Orange */
+
+button {
+  min-height: 44px;
+  min-width: 44px;
+  font-family: inherit;
+}
+
+@media (max-width: 1023px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-    </pre>
 
-    <div class="sheet-footer">
-      <span>SAFECAMPUS Mini Project Report</span>
-      <span>Page 4</span>
+@media (max-width: 767px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) and (orientation: landscape) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+      </pre>
+    </div>
+
+    <div class="sheet-bottom-footer">
+      SAFECAMPUS Mini Project Report • Page 4
     </div>
   </div>
 
@@ -580,13 +589,13 @@ body {
        PAGE 5: PROGRAM CODE (JS NLP & REPORTING)
        ==================================================== -->
   <div class="report-sheet">
-    <div class="sheet-header">
-      <span>SAFECAMPUS — College Cyberbullying Prevention & Incident Redressal Portal</span>
-      <span>SafeCampus Mini Project Report</span>
+    <div class="sheet-top-header">
+      SAFECAMPUS — College Cyberbullying Prevention & Incident Redressal Platform
     </div>
 
-    <h3 class="sub-heading">5.3 JavaScript – Real-Time AI Toxicity Engine</h3>
-    <pre>
+    <div class="sheet-content">
+      <h3 class="sub-title">5.3 JavaScript – Real-Time AI Toxicity Engine</h3>
+      <pre>
 const ToxicityEngine = (() => {
   const THREAT_PATTERNS = [
     /kill\s+(yourself|urself|you)/i,
@@ -621,10 +630,10 @@ const ToxicityEngine = (() => {
   }
   return { analyze };
 })();
-    </pre>
+      </pre>
 
-    <h3 class="sub-heading">5.4 JavaScript – Incident Intake & Case Tracking Handler</h3>
-    <pre>
+      <h3 class="sub-title">5.4 JavaScript – Incident Intake & Case Tracking Handler</h3>
+      <pre>
 function submitIncident(formData) {
   const randomCode = Math.floor(1000 + Math.random() * 9000);
   const newCaseId = `CBP-2026-${randomCode}`;
@@ -634,11 +643,13 @@ function submitIncident(formData) {
     id: newCaseId,
     timestamp,
     reportingType: formData.reportingType,
+    studentName: formData.studentName || "Anonymous Student",
     category: formData.category,
     platform: formData.platform,
     urgency: formData.urgency,
     description: formData.description,
     status: "Submitted",
+    toxicityScore: ToxicityEngine.analyze(formData.description).overallScore,
     notes: [{
       date: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
       text: "Complaint lodged via SafeCampus Student Portal. Assigned to Grievance Redressal Cell."
@@ -650,82 +661,82 @@ function submitIncident(formData) {
   localStorage.setItem("safecampus_incidents", JSON.stringify(incidents));
   return newIncident;
 }
-    </pre>
+      </pre>
 
-    <p style="font-size: 11px; color: #6b7280;">
-      The complete project source contains additional modular handlers for case status timeline stepping, student counseling live chat simulations, awareness quiz scoring, and admin CSV exports.
-    </p>
+      <p style="font-size: 11px; color: #6b7280;">
+        The complete project source contains additional modules for 5-stage case timeline stepping, student counseling live chat simulations, awareness quiz scoring and admin CSV exports.
+      </p>
+    </div>
 
-    <div class="sheet-footer">
-      <span>SAFECAMPUS Mini Project Report</span>
-      <span>Page 5</span>
+    <div class="sheet-bottom-footer">
+      SAFECAMPUS Mini Project Report • Page 5
     </div>
   </div>
 
   <!-- ====================================================
-       PAGE 6: OUTPUT (HOME & AI ANALYZER)
+       PAGE 6: OUTPUT (HOME & AI DETECTOR)
        ==================================================== -->
   <div class="report-sheet">
-    <div class="sheet-header">
-      <span>SAFECAMPUS — College Cyberbullying Prevention & Incident Redressal Portal</span>
-      <span>SafeCampus Mini Project Report</span>
+    <div class="sheet-top-header">
+      SAFECAMPUS — College Cyberbullying Prevention & Incident Redressal Platform
     </div>
 
-    <h2 class="section-heading">6. OUTPUT</h2>
-    <h3 class="sub-heading">6.1 Home & Windows 8 Live Tiles Interface</h3>
-    <p>
-      The home dashboard renders the university anti-ragging initiative badge, mission tagline, quick action buttons, and six colorful Windows 8 live tiles representing each primary platform module.
-    </p>
+    <div class="sheet-content">
+      <h2 class="section-title">6. OUTPUT</h2>
+      <h3 class="sub-title">6.1 Home & Live Tiles Explorer</h3>
+      <p>
+        The home interface displays the anti-ragging badge, platform mission tagline, emergency quick-access trigger and colorful Windows 8 live tiles representing each primary module.
+      </p>
 
-    <div style="background: #ffffff; border: 2px solid #d1d5db; padding: 14px; margin: 12px 0;">
-      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #008a00; padding-bottom: 8px; margin-bottom: 12px;">
-        <strong style="color: #008a00; font-size: 14px;">🛡️ SAFECAMPUS &bull; Anti-Cyberbullying Portal</strong>
-        <span style="background: #ea580c; color: white; padding: 4px 10px; font-weight: 700; font-size: 11px;">🚨 SOS (1930)</span>
+      <div class="output-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #008a00; padding-bottom: 6px; margin-bottom: 10px;">
+          <strong style="color: #008a00; font-size: 13px;">🛡️ SAFECAMPUS &bull; Anti-Cyberbullying Portal</strong>
+          <span style="background: #ea580c; color: white; padding: 4px 8px; font-weight: 700; font-size: 10.5px;">🚨 SOS (1930)</span>
+        </div>
+        <h3 style="font-size: 17px; font-weight: 300; margin-bottom: 4px;">Speak Up Without Fear. <strong style="color: #008a00;">Safe & Intelligent Redressal Hub.</strong></h3>
+        <p style="font-size: 11.5px; margin-bottom: 10px;">Empowering college students with anonymous incident reporting and real-time AI toxicity screening.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;">
+          <div style="background: #008a00; color: white; padding: 12px;">
+            <div style="font-size: 18px;">📝</div>
+            <strong style="font-size: 11.5px; display: block; margin: 2px 0;">Report Incident</strong>
+            <small style="opacity: 0.9; font-size: 9.5px;">100% Anonymous Intake</small>
+          </div>
+          <div style="background: #603cba; color: white; padding: 12px;">
+            <div style="font-size: 18px;">🧠</div>
+            <strong style="font-size: 11.5px; display: block; margin: 2px 0;">AI Toxicity Engine</strong>
+            <small style="opacity: 0.9; font-size: 9.5px;">Threat & Blackmail NLP</small>
+          </div>
+          <div style="background: #008272; color: white; padding: 12px;">
+            <div style="font-size: 18px;">📍</div>
+            <strong style="font-size: 11.5px; display: block; margin: 2px 0;">Case Tracker</strong>
+            <small style="opacity: 0.9; font-size: 9.5px;">5-Stage Timeline</small>
+          </div>
+        </div>
       </div>
-      <h3 style="font-size: 18px; font-weight: 300; margin-bottom: 6px;">Speak Up Without Fear. <span style="color: #008a00; font-weight: 600;">Safe & Intelligent Redressal Hub.</span></h3>
-      <p style="font-size: 12px; margin-bottom: 12px;">Empowering students with anonymous incident reporting and real-time AI toxicity screening.</p>
-      
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
-        <div style="background: #008a00; color: white; padding: 14px;">
-          <div style="font-size: 20px;">📝</div>
-          <strong style="font-size: 12px; display: block; margin: 4px 0;">Report Incident</strong>
-          <small style="opacity: 0.9; font-size: 10px;">100% Anonymous Intake</small>
-        </div>
-        <div style="background: #603cba; color: white; padding: 14px;">
-          <div style="font-size: 20px;">🧠</div>
-          <strong style="font-size: 12px; display: block; margin: 4px 0;">AI Toxicity Engine</strong>
-          <small style="opacity: 0.9; font-size: 10px;">Threat & Blackmail NLP</small>
-        </div>
-        <div style="background: #008272; color: white; padding: 14px;">
-          <div style="font-size: 20px;">📍</div>
-          <strong style="font-size: 12px; display: block; margin: 4px 0;">Case Tracker</strong>
-          <small style="opacity: 0.9; font-size: 10px;">5-Stage Timeline</small>
+      <div class="fig-caption">Figure 2. Responsive Windows 8 Metro Live Tiles Explorer</div>
+
+      <h3 class="sub-title">6.2 Real-Time AI Toxicity & Cyberbullying Analyzer</h3>
+      <p>
+        The AI workspace displays the radial toxicity score gauge, severity classification, category breakdown progress bars and flagged trigger words.
+      </p>
+
+      <div class="output-card" style="border-left: 5px solid #008a00;">
+        <div style="display: flex; gap: 16px; align-items: center;">
+          <div style="width: 76px; height: 76px; background: #e6f4ea; border: 3px solid #008a00; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <strong style="font-size: 20px; color: #008a00; font-family: monospace;">88%</strong>
+            <small style="font-size: 8.5px; text-transform: uppercase;">Toxicity</small>
+          </div>
+          <div>
+            <span style="background: #ea580c; color: white; padding: 2px 6px; font-size: 9.5px; font-weight: 700; text-transform: uppercase;">Severe Cyberbullying / Threat Alert</span>
+            <p style="font-size: 11.5px; margin-top: 4px; margin-bottom: 0;"><strong>Recommended Action:</strong> Immediate intervention required. File confidential report and preserve screenshots.</p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="fig-caption">Figure 2. SAFECAMPUS Windows 8 Metro Live Tiles Explorer</div>
 
-    <h3 class="sub-heading">6.2 Real-Time AI Toxicity & Cyberbullying Analyzer</h3>
-    <p>
-      Users can evaluate direct messages or comments. The interface displays an SVG radial toxicity gauge, severity badges, category bars, and flagged keywords.
-    </p>
-
-    <div style="background: #ffffff; border: 2px solid #d1d5db; border-left: 6px solid #008a00; padding: 14px; margin: 12px 0;">
-      <div style="display: flex; gap: 20px; align-items: center;">
-        <div style="width: 80px; height: 80px; background: #e6f4ea; border: 4px solid #008a00; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-          <strong style="font-size: 22px; color: #008a00; font-family: monospace;">88%</strong>
-          <small style="font-size: 9px; text-transform: uppercase;">Toxicity</small>
-        </div>
-        <div>
-          <span style="background: #ea580c; color: white; padding: 3px 8px; font-size: 10px; font-weight: 700; text-transform: uppercase;">Severe Cyberbullying / Threat Alert</span>
-          <p style="font-size: 12px; margin-top: 6px; margin-bottom: 0;"><strong>Recommended Action:</strong> Immediate intervention required. File confidential report and preserve screenshots.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="sheet-footer">
-      <span>SAFECAMPUS Mini Project Report</span>
-      <span>Page 6</span>
+    <div class="sheet-bottom-footer">
+      SAFECAMPUS Mini Project Report • Page 6
     </div>
   </div>
 
@@ -733,56 +744,56 @@ function submitIncident(formData) {
        PAGE 7: OUTPUT (REPORTING & CASE TRACKER)
        ==================================================== -->
   <div class="report-sheet">
-    <div class="sheet-header">
-      <span>SAFECAMPUS — College Cyberbullying Prevention & Incident Redressal Portal</span>
-      <span>SafeCampus Mini Project Report</span>
+    <div class="sheet-top-header">
+      SAFECAMPUS — College Cyberbullying Prevention & Incident Redressal Platform
     </div>
 
-    <h3 class="sub-heading">6.3 Incident Intake & Printable Grievance Slip</h3>
-    <p>
-      Students submit grievances choosing between anonymous and identified modes, attaching evidence files. The portal outputs an encrypted grievance slip with unique Case ID.
-    </p>
+    <div class="sheet-content">
+      <h3 class="sub-title">6.3 Incident Intake & Printable Grievance Receipt</h3>
+      <p>
+        After successful incident lodging, the system displays the grievance summary, privacy mode, platform, AI severity score, unique Case ID and digital receipt.
+      </p>
 
-    <div style="background: #f8fafc; border: 2px dashed #008a00; padding: 16px; margin: 12px 0;">
-      <div style="display: flex; justify-content: space-between; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px; margin-bottom: 10px;">
-        <strong style="color: #008a00; font-size: 13px;">SAFECAMPUS OFFICIAL GRIEVANCE SLIP</strong>
-        <span style="font-family: monospace; font-weight: 700; color: #603cba;">CBP-2026-1042</span>
+      <div class="output-card" style="border: 2px dashed #008a00; background: #fbfdfa;">
+        <div style="display: flex; justify-content: space-between; border-bottom: 1.5px solid #e5e7eb; padding-bottom: 6px; margin-bottom: 8px;">
+          <strong style="color: #008a00; font-size: 12.5px;">SAFECAMPUS OFFICIAL GRIEVANCE SLIP</strong>
+          <span style="font-family: monospace; font-weight: 700; color: #603cba;">CBP-2026-1042</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11.5px;">
+          <div><strong>Privacy Mode:</strong> 🔒 100% Anonymous</div>
+          <div><strong>Category:</strong> Harassment & Abusive DMs</div>
+          <div><strong>Platform:</strong> Instagram (@pseudo_troll_99)</div>
+          <div><strong>AI Severity:</strong> 88% (Critical Priority)</div>
+        </div>
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 12px;">
-        <div><strong>Privacy:</strong> 🔒 100% Anonymous</div>
-        <div><strong>Category:</strong> Harassment & Abusive DMs</div>
-        <div><strong>Platform:</strong> Instagram (@pseudo_troll_99)</div>
-        <div><strong>AI Severity:</strong> 88% (Critical Priority)</div>
+      <div class="fig-caption">Figure 3. Digital Grievance Slip & Case Intake Acknowledgment</div>
+
+      <h3 class="sub-title">6.4 5-Stage Case Progress Timeline</h3>
+      <p>
+        Complainants monitor active grievances across five sequential inquiry stages and communicate with campus psychological counseling officers.
+      </p>
+
+      <div class="output-card">
+        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 11.5px;">
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <span style="background: #008a00; color: white; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; font-weight: bold; font-size: 11px;">✓</span>
+            <div><strong>Stage 1: Complaint Registered</strong> &bull; <small style="color: #6b7280;">Digital intake completed</small></div>
+          </div>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <span style="background: #008a00; color: white; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; font-weight: bold; font-size: 11px;">✓</span>
+            <div><strong>Stage 2: AI Triaged & Verified</strong> &bull; <small style="color: #6b7280;">Severity model classified threat</small></div>
+          </div>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <span style="background: #603cba; color: white; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; font-weight: bold; font-size: 11px;">3</span>
+            <div><strong style="color: #603cba;">Stage 3: Assigned & Inquiring (Current)</strong> &bull; <small style="color: #6b7280;">Disciplinary Cell verifying logs</small></div>
+          </div>
+        </div>
       </div>
+      <div class="fig-caption">Figure 4. 5-Stage Case Progress Timeline</div>
     </div>
-    <div class="fig-caption">Figure 3. Digital Grievance Slip & Case Intake Acknowledgment</div>
 
-    <h3 class="sub-heading">6.4 5-Stage Case Timeline & Counselor Chat</h3>
-    <p>
-      Complainants track case inquiries across five verification milestones and communicate securely with assigned campus psychologists.
-    </p>
-
-    <div style="background: #ffffff; border: 1px solid #d1d5db; padding: 14px; margin: 12px 0;">
-      <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12px;">
-        <div style="display: flex; gap: 10px; align-items: center;">
-          <span style="background: #008a00; color: white; width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; font-weight: bold;">✓</span>
-          <div><strong>Stage 1: Complaint Registered</strong> &bull; <small style="color: #6b7280;">Digital intake completed</small></div>
-        </div>
-        <div style="display: flex; gap: 10px; align-items: center;">
-          <span style="background: #008a00; color: white; width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; font-weight: bold;">✓</span>
-          <div><strong>Stage 2: AI Triaged & Verified</strong> &bull; <small style="color: #6b7280;">Severity model classified threat</small></div>
-        </div>
-        <div style="display: flex; gap: 10px; align-items: center;">
-          <span style="background: #603cba; color: white; width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; font-weight: bold;">3</span>
-          <div><strong style="color: #603cba;">Stage 3: Assigned & Inquiring (Current)</strong> &bull; <small style="color: #6b7280;">Disciplinary Cell verifying logs</small></div>
-        </div>
-      </div>
-    </div>
-    <div class="fig-caption">Figure 4. 5-Stage Case Progress Timeline</div>
-
-    <div class="sheet-footer">
-      <span>SAFECAMPUS Mini Project Report</span>
-      <span>Page 7</span>
+    <div class="sheet-bottom-footer">
+      SAFECAMPUS Mini Project Report • Page 7
     </div>
   </div>
 
@@ -790,76 +801,94 @@ function submitIncident(formData) {
        PAGE 8: TESTING AND RESULTS
        ==================================================== -->
   <div class="report-sheet">
-    <div class="sheet-header">
-      <span>SAFECAMPUS — College Cyberbullying Prevention & Incident Redressal Portal</span>
-      <span>SafeCampus Mini Project Report</span>
+    <div class="sheet-top-header">
+      SAFECAMPUS — College Cyberbullying Prevention & Incident Redressal Platform
     </div>
 
-    <h3 class="sub-heading">6.5 Grievance Cell Administrative Dashboard</h3>
-    <p>
-      Disciplinary officials access live KPI stat tiles, filterable case grids, full case dossiers, and CSV audit export.
-    </p>
+    <div class="sheet-content">
+      <h3 class="sub-title">6.5 Grievance Cell Dashboard</h3>
+      <p>
+        Disciplinary officials can monitor active complaints through the live management dashboard, filter by urgency, review dossiers and update inquiry stages.
+      </p>
 
-    <h2 class="section-heading">7. TESTING AND RESULTS</h2>
-    <h3 class="sub-heading">7.1 Automated Integration & Functional Test Suite</h3>
-    <p>
-      The automated verification suite covers ten test cases verifying intake, AI NLP scoring, privacy preservation, and administrative auditing.
-    </p>
+      <div class="output-card" style="border-top: 3px solid #008a00;">
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 8px;">
+          <div style="background: #008a00; color: white; padding: 6px; text-align: center;">
+            <strong style="font-size: 14px;">4</strong><br><small style="font-size: 9px;">TOTAL</small>
+          </div>
+          <div style="background: #d97706; color: white; padding: 6px; text-align: center;">
+            <strong style="font-size: 14px;">3</strong><br><small style="font-size: 9px;">PENDING</small>
+          </div>
+          <div style="background: #ea580c; color: white; padding: 6px; text-align: center;">
+            <strong style="font-size: 14px;">2</strong><br><small style="font-size: 9px;">CRITICAL</small>
+          </div>
+          <div style="background: #008272; color: white; padding: 6px; text-align: center;">
+            <strong style="font-size: 14px;">1</strong><br><small style="font-size: 9px;">RESOLVED</small>
+          </div>
+        </div>
+      </div>
+      <div class="fig-caption">Figure 5. Disciplinary Committee Oversight Dashboard</div>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Test Case</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Anonymous Reporting Intake (Zero personal identifiers collected)</td>
-          <td><span class="badge-pass">PASSED</span></td>
-        </tr>
-        <tr>
-          <td>Identified Reporting Intake (Student credentials validated)</td>
-          <td><span class="badge-pass">PASSED</span></td>
-        </tr>
-        <tr>
-          <td>AI Threat Pattern Detection (Direct death threats trigger &ge; 80% score)</td>
-          <td><span class="badge-pass">PASSED</span></td>
-        </tr>
-        <tr>
-          <td>Evidence Drag & Drop (Screenshot preview chips generated)</td>
-          <td><span class="badge-pass">PASSED</span></td>
-        </tr>
-        <tr>
-          <td>Case Tracking ID Lookup (Renders 5-stage progress timeline)</td>
-          <td><span class="badge-pass">PASSED</span></td>
-        </tr>
-        <tr>
-          <td>Counselor Chat Simulator (Context-aware automated replies)</td>
-          <td><span class="badge-pass">PASSED</span></td>
-        </tr>
-        <tr>
-          <td>Admin Authentication Guard (Authorized passkey verification)</td>
-          <td><span class="badge-pass">PASSED</span></td>
-        </tr>
-        <tr>
-          <td>In-Place Status Update (Synchronizes to LocalStorage)</td>
-          <td><span class="badge-pass">PASSED</span></td>
-        </tr>
-        <tr>
-          <td>CSV Audit Report Export (Generates downloadable tabular data)</td>
-          <td><span class="badge-pass">PASSED</span></td>
-        </tr>
-        <tr>
-          <td>Cyber Safety Awareness Quiz (Calculates score & issues certificate)</td>
-          <td><span class="badge-pass">PASSED</span></td>
-        </tr>
-      </tbody>
-    </table>
+      <h2 class="section-title">7. TESTING AND RESULTS</h2>
+      <h3 class="sub-title">7.1 Automated API & Functional Tests</h3>
+      <p>
+        The documented automated integration suite contains ten tests covering the major application, NLP and security workflows.
+      </p>
 
-    <div class="sheet-footer">
-      <span>SAFECAMPUS Mini Project Report</span>
-      <span>Page 8</span>
+      <table>
+        <thead>
+          <tr>
+            <th>Test Case</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Anonymous Reporting Intake (Zero personal identifiers collected)</td>
+            <td><span class="badge-pass">PASSED</span></td>
+          </tr>
+          <tr>
+            <td>Identified Reporting Intake (Student credentials validated)</td>
+            <td><span class="badge-pass">PASSED</span></td>
+          </tr>
+          <tr>
+            <td>AI Threat Pattern Detection (Direct death threats trigger &ge; 80% score)</td>
+            <td><span class="badge-pass">PASSED</span></td>
+          </tr>
+          <tr>
+            <td>Evidence Drag & Drop (Screenshot preview chips generated)</td>
+            <td><span class="badge-pass">PASSED</span></td>
+          </tr>
+          <tr>
+            <td>Case Tracking ID Lookup (Renders 5-stage progress timeline)</td>
+            <td><span class="badge-pass">PASSED</span></td>
+          </tr>
+          <tr>
+            <td>Counselor Chat Simulator (Context-aware automated replies)</td>
+            <td><span class="badge-pass">PASSED</span></td>
+          </tr>
+          <tr>
+            <td>Admin Authentication Guard (Authorized passkey verification)</td>
+            <td><span class="badge-pass">PASSED</span></td>
+          </tr>
+          <tr>
+            <td>In-Place Status Update (Synchronizes to LocalStorage)</td>
+            <td><span class="badge-pass">PASSED</span></td>
+          </tr>
+          <tr>
+            <td>CSV Audit Report Export (Generates downloadable tabular data)</td>
+            <td><span class="badge-pass">PASSED</span></td>
+          </tr>
+          <tr>
+            <td>Cyber Safety Awareness Quiz (Calculates score & issues certificate)</td>
+            <td><span class="badge-pass">PASSED</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sheet-bottom-footer">
+      SAFECAMPUS Mini Project Report • Page 8
     </div>
   </div>
 
@@ -867,71 +896,76 @@ function submitIncident(formData) {
        PAGE 9: RESPONSIVE CHECKLIST, DEPLOYMENT & CONCLUSION
        ==================================================== -->
   <div class="report-sheet">
-    <div class="sheet-header">
-      <span>SAFECAMPUS — College Cyberbullying Prevention & Incident Redressal Portal</span>
-      <span>SafeCampus Mini Project Report</span>
+    <div class="sheet-top-header">
+      SAFECAMPUS — College Cyberbullying Prevention & Incident Redressal Platform
     </div>
 
-    <h3 class="sub-heading">7.2 Responsive Testing Checklist</h3>
-    <ul>
-      <li>✓ 320 px – small mobile display</li>
-      <li>✓ 375 px – standard mobile portrait</li>
-      <li>✓ 768 px – tablet viewport</li>
-      <li>✓ 1024 px – laptop screen boundary</li>
-      <li>✓ 1366 px – standard widescreen</li>
-      <li>✓ 1920 px – desktop Full HD display</li>
-      <li>✓ Mobile portrait and landscape orientations</li>
-      <li>✓ Tablet portrait and landscape orientations</li>
-      <li>✓ No page-level horizontal overflow</li>
-      <li>✓ Touch controls and buttons maintain minimum 44px tap target</li>
-    </ul>
+    <div class="sheet-content">
+      <h3 class="sub-title">7.2 Responsive Testing Checklist</h3>
+      <ul>
+        <li>• ✓ 320 px – small mobile</li>
+        <li>• ✓ 375 px – mobile portrait</li>
+        <li>• ✓ 768 px – tablet</li>
+        <li>• ✓ 1024 px – tablet/laptop boundary</li>
+        <li>• ✓ 1366 px – laptop</li>
+        <li>• ✓ 1920 px – desktop</li>
+        <li>• ✓ Mobile portrait and landscape</li>
+        <li>• ✓ Tablet portrait and landscape</li>
+        <li>• ✓ No page-level horizontal overflow</li>
+        <li>• ✓ Touch controls remain accessible</li>
+      </ul>
 
-    <h2 class="section-heading">8. DEPLOYMENT</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Component</th>
-          <th>Platform</th>
-          <th>Role</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Frontend Web App</td>
-          <td>GitHub Pages / Static Host</td>
-          <td>Hosts responsive Windows 8 Metro UI interface</td>
-        </tr>
-        <tr>
-          <td>Client NLP Engine</td>
-          <td>Browser V8 Engine</td>
-          <td>Executes client-side lexical cyberbullying classifier</td>
-        </tr>
-        <tr>
-          <td>Data Persistence</td>
-          <td>HTML5 LocalStorage</td>
-          <td>Stores incident dossiers, audit logs, and status updates locally</td>
-        </tr>
-        <tr>
-          <td>Source Control</td>
-          <td>GitHub</td>
-          <td>Stores and versions the project source code</td>
-        </tr>
-      </tbody>
-    </table>
+      <h3 class="sub-title">7.3 Production Verification</h3>
+      <p>
+        The static application was verified for zero external server latency, continuous LocalStorage JSON integrity across page reloads and cross-browser consistency.
+      </p>
 
-    <h2 class="section-heading">9. RESULT</h2>
-    <p>
-      Thus, the <strong>SAFECAMPUS College Cyberbullying Prevention & Incident Redressal Platform</strong> was successfully designed, developed, tested and deployed. The application provides anonymous grievance intake, real-time AI toxicity scoring, unique Case Tracking ID generation, a 5-stage inquiry timeline, an interactive student counseling simulator, a comprehensive disciplinary committee dashboard, national helpline integration (1930, 14416), and responsive support for mobile, tablet, laptop, and desktop displays.
-    </p>
+      <h2 class="section-title">8. DEPLOYMENT</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 25%;">Component</th>
+            <th style="width: 30%;">Platform</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Frontend</td>
+            <td>GitHub Pages / Static Host</td>
+            <td>Hosts the responsive SAFECAMPUS web interface</td>
+          </tr>
+          <tr>
+            <td>NLP Engine</td>
+            <td>Browser V8 Engine</td>
+            <td>Executes client-side lexical cyberbullying classifier</td>
+          </tr>
+          <tr>
+            <td>Database</td>
+            <td>HTML5 LocalStorage</td>
+            <td>Stores grievances, investigation notes and audit data</td>
+          </tr>
+          <tr>
+            <td>Source Control</td>
+            <td>GitHub</td>
+            <td>Stores and versions the project source</td>
+          </tr>
+        </tbody>
+      </table>
 
-    <h2 class="section-heading">10. CONCLUSION</h2>
-    <p>
-      SAFECAMPUS demonstrates how campus safety and grievance redressal workflows can be effectively implemented as a responsive, lightweight, client-side web application. The adoption of the Windows 8 Metro UI Kit provides an authoritative, clean, and highly usable interface, while the client-side architecture guarantees immediate deployment with zero cloud server expenses while safeguarding student confidentiality.
-    </p>
+      <h2 class="section-title">9. RESULT</h2>
+      <p>
+        Thus, the SAFECAMPUS College Cyberbullying Prevention & Incident Redressal Platform was successfully designed, developed, tested and deployed. The application provides confidential incident intake, real-time AI toxicity scoring, Case Tracking ID generation, a 5-stage inquiry timeline, an interactive student counseling simulator, administrative oversight controls, national helpline integration and responsive support for mobile, tablet, laptop, desktop and kiosk displays.
+      </p>
 
-    <div class="sheet-footer">
-      <span>SAFECAMPUS Mini Project Report</span>
-      <span>Page 9</span>
+      <h2 class="section-title">10. CONCLUSION</h2>
+      <p>
+        SAFECAMPUS demonstrates how campus safety and grievance redressal workflows can be implemented as a responsive, lightweight, client-side web application. The adoption of the Windows 8 Metro UI Kit provides an authoritative, clean and highly usable interface without unnecessary visual clutter, while the client-side architecture guarantees immediate deployment with zero cloud server expenses.
+      </p>
+    </div>
+
+    <div class="sheet-bottom-footer">
+      SAFECAMPUS Mini Project Report • Page 9
     </div>
   </div>
 
@@ -939,55 +973,55 @@ function submitIncident(formData) {
        PAGE 10: FUTURE ENHANCEMENTS & APPENDICES
        ==================================================== -->
   <div class="report-sheet">
-    <div class="sheet-header">
-      <span>SAFECAMPUS — College Cyberbullying Prevention & Incident Redressal Portal</span>
-      <span>SafeCampus Mini Project Report</span>
+    <div class="sheet-top-header">
+      SAFECAMPUS — College Cyberbullying Prevention & Incident Redressal Platform
     </div>
 
-    <h2 class="section-heading">11. FUTURE ENHANCEMENTS</h2>
-    <ul>
-      <li>Integration with college Single Sign-On (SSO / Google Workspace / Microsoft Entra ID).</li>
-      <li>Automated SMS and email notifications upon grievance status updates.</li>
-      <li>Machine learning model upgrade using WebAssembly (TensorFlow.js) for multilingual threat detection in regional Indian languages.</li>
-      <li>Forensic integration with campus Wi-Fi access logs for IP correlation.</li>
-      <li>Mobile PWA (Progressive Web App) offline installation with native push notifications.</li>
-    </ul>
+    <div class="sheet-content">
+      <h2 class="section-title">11. FUTURE ENHANCEMENTS</h2>
+      <ul>
+        <li>• Integration of official college Single Sign-On (SSO / Microsoft Entra ID).</li>
+        <li>• Push notifications and SMS alerts for grievance status changes.</li>
+        <li>• Advanced machine learning models for regional Indian language threat detection.</li>
+        <li>• Campus Wi-Fi forensic access correlation.</li>
+        <li>• Mobile PWA (Progressive Web App) offline installation with native push notifications.</li>
+      </ul>
 
-    <h2 class="section-heading">APPENDIX A – PROJECT FILE STRUCTURE</h2>
-    <pre>
+      <h2 class="section-title">APPENDIX A – PROJECT FILE STRUCTURE</h2>
+      <pre>
 CYBER-BULLYING-PORTAL/
-├── index.html                  # Main application structure & Metro viewports
-├── README.md                   # Project overview & developer guide
-├── PROJECT_REPORT.md           # Formal college mini project report (Markdown)
-├── PROJECT_REPORT.html         # Printable A4 college mini project report (HTML)
-├── .gitignore                  # Git repository exclusion rules
+├── index.html
+├── README.md
+├── PROJECT_REPORT.md
+├── PROJECT_REPORT.html
+├── .gitignore
 ├── css/
-│   ├── style.css               # Windows 8 Metro design system & typography
-│   ├── components.css          # Form wizard, AI gauge, timeline, quiz styling
-│   └── dashboard.css           # Admin statistics tiles, data tables, filter toolbar
+│   ├── style.css
+│   ├── components.css
+│   └── dashboard.css
 ├── js/
-│   ├── app.js                  # Navigation router, SOS modal, orchestrator
-│   ├── toxicity-engine.js      # Multi-dimensional NLP pattern matching & lexical scoring
-│   ├── reporting.js            # Incident wizard, evidence handler, Case ID generator
-│   ├── tracker.js              # Case tracking, 5-stage timeline, counselor chat
-│   ├── admin.js                # Grievance dashboard, status updates, CSV export
-│   └── quiz.js                 # Cyber safety quiz & digital certificate generator
+│   ├── app.js
+│   ├── toxicity-engine.js
+│   ├── reporting.js
+│   ├── tracker.js
+│   ├── admin.js
+│   └── quiz.js
 └── data/
-    └── sample-data.js          # Realistic seed incidents & localStorage manager
-    </pre>
+    └── sample-data.js
+      </pre>
 
-    <h2 class="section-heading">APPENDIX B – PRODUCTION VERIFICATION</h2>
-    <ul>
-      <li>Frontend deployed and hosted via GitHub Pages static architecture.</li>
-      <li>Windows 8 Metro UI verified with 0px sharp geometry, flat tiles, and Segoe UI fonts.</li>
-      <li>Color compliance verified: zero blue, dark blue, black, red, or pink.</li>
-      <li>Client-side NLP Toxicity Engine verified with real-time heuristic scoring.</li>
-      <li>Automated test suite documented with 10 functional tests passed.</li>
-    </ul>
+      <h2 class="section-title">APPENDIX B – PRODUCTION VERIFICATION</h2>
+      <ul>
+        <li>• Frontend deployed and hosted via GitHub Pages static architecture.</li>
+        <li>• Windows 8 Metro UI verified with 0px sharp geometry, flat tiles and Segoe UI fonts.</li>
+        <li>• Color compliance verified: zero blue, dark blue, black, red, or pink in user application.</li>
+        <li>• Client-side NLP Toxicity Engine verified with real-time heuristic scoring.</li>
+        <li>• Automated test suite documented as 10 tests passed.</li>
+      </ul>
+    </div>
 
-    <div class="sheet-footer">
-      <span>SAFECAMPUS Mini Project Report</span>
-      <span>Page 10</span>
+    <div class="sheet-bottom-footer">
+      SAFECAMPUS Mini Project Report • Page 10
     </div>
   </div>
 
